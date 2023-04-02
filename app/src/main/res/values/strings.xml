@@ -5,4 +5,10 @@
     <string name="bottom_menu_home">Home</string>
     <string name="bottom_menu_favorites">Favorites</string>
     <string name="bottom_menu_categories">Categories</string>
+    <string name="image_search">Search</string>
+    <string name="home">Home</string>
+    <string name="what_would_you_like_to_eat">What would you like to eat</string>
+    <string name="image_random_meal">Random_meal</string>
+    <string name="over_popular_items">Over popular items</string>
+    <string name="categories">Categories</string>
 </resources>
