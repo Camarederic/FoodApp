@@ -1,9 +1,10 @@
-package com.camarederic.foodapp
+package com.camarederic.foodapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.camarederic.foodapp.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
