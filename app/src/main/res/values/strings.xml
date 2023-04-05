@@ -11,4 +11,9 @@
     <string name="image_random_meal">Random_meal</string>
     <string name="over_popular_items">Over popular items</string>
     <string name="categories">Categories</string>
+    <string name="category_beef">Category : Beef</string>
+    <string name="area_british">Area : British</string>
+    <string name="image_meal_name">Meal name</string>
+    <string name="fab_favorite">Fab favorite</string>
+    <string name="instructions">- Instructions :</string>
 </resources>
