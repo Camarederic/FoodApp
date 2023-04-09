@@ -7,12 +7,16 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.camarederic.foodapp.R
+import com.camarederic.foodapp.database.MealDatabase
 import com.camarederic.foodapp.databinding.ActivityMealBinding
 import com.camarederic.foodapp.fragments.HomeFragment
+import com.camarederic.foodapp.pojo.Meal
 import com.camarederic.foodapp.viewmodel.MealViewModel
+import com.camarederic.foodapp.viewmodel.MealViewModelFactory
 
 
 class MealActivity : AppCompatActivity() {
@@ -29,7 +33,9 @@ class MealActivity : AppCompatActivity() {
         binding = ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mealViewModel = ViewModelProvider(this)[MealViewModel::class.java]
+        val mealDatabase = MealDatabase.getInstance(this)
+        val viewModelFactory = MealViewModelFactory(mealDatabase)
+        mealViewModel = ViewModelProvider(this,viewModelFactory)[MealViewModel::class.java]
 
         getMealInformationFromIntent()
 
@@ -41,6 +47,17 @@ class MealActivity : AppCompatActivity() {
         observeMealDetailsLiveData()
 
         onYoutubeImageClick()
+
+        onFavoriteClick()
+    }
+
+    private fun onFavoriteClick() {
+        binding.fabFavorite.setOnClickListener {
+            mealToSave?.let { meal->
+                mealViewModel.insertMeal(meal)
+                Toast.makeText(this, "Meal saved", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun onYoutubeImageClick() {
@@ -51,6 +68,7 @@ class MealActivity : AppCompatActivity() {
     }
 
 
+    private var mealToSave:Meal? = null
     @SuppressLint("SetTextI18n")
     private fun observeMealDetailsLiveData() {
         mealViewModel.observeMealDetailsLiveData().observe(
@@ -60,6 +78,7 @@ class MealActivity : AppCompatActivity() {
             onResponseCase()
             val meal = value
 
+            mealToSave = meal
             binding.tvCategory.text = "Category : ${meal.strCategory}"
             binding.tvArea.text = "Area : ${meal.strArea}"
             binding.tvInstructionStep.text = meal.strInstructions
@@ -87,7 +106,7 @@ class MealActivity : AppCompatActivity() {
 
     private fun loadingCase() {
         binding.progressBar.visibility = View.VISIBLE
-        binding.fab.visibility = View.INVISIBLE
+        binding.fabFavorite.visibility = View.INVISIBLE
         binding.tvCategory.visibility = View.INVISIBLE
         binding.tvArea.visibility = View.INVISIBLE
         binding.imageYoutube.visibility = View.INVISIBLE
@@ -95,7 +114,7 @@ class MealActivity : AppCompatActivity() {
 
     private fun onResponseCase(){
         binding.progressBar.visibility = View.INVISIBLE
-        binding.fab.visibility = View.VISIBLE
+        binding.fabFavorite.visibility = View.VISIBLE
         binding.tvCategory.visibility = View.VISIBLE
         binding.tvArea.visibility = View.VISIBLE
         binding.imageYoutube.visibility = View.VISIBLE
