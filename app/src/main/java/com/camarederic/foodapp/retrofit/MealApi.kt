@@ -1,5 +1,6 @@
 package com.camarederic.foodapp.retrofit
 
+
 import com.camarederic.foodapp.pojo.CategoryList
 import com.camarederic.foodapp.pojo.MealsByCategoryList
 import com.camarederic.foodapp.pojo.MealList
@@ -20,4 +21,7 @@ interface MealApi {
 
     @GET("categories.php")
     fun getCategories():Call<CategoryList>
+
+    @GET("filter.php")
+    fun getMealsByCategory(@Query("c") category: String) : Call<MealsByCategoryList>
 }

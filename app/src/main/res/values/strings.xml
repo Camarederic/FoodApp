@@ -16,4 +16,6 @@
     <string name="image_meal_name">Meal name</string>
     <string name="fab_favorite">Fab favorite</string>
     <string name="instructions">- Instructions :</string>
+    <string name="category_name">Category name</string>
+    <string name="image_youtube">Youtube</string>
 </resources>
