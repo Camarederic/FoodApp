@@ -10,5 +10,6 @@
 
 
     <color name="g_black">#373737</color>
+    <color name="g_gray">#EAEAEA</color>
 
 </resources>

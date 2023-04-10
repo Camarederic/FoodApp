@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.camarederic.foodapp.R
 import com.camarederic.foodapp.activities.CategoryMealsActivity
 import com.camarederic.foodapp.activities.MainActivity
 import com.camarederic.foodapp.activities.MealActivity
@@ -76,10 +78,17 @@ class HomeFragment : Fragment() {
 
         onPopularItemLongClick()
 
+        onSearchIconClick()
+    }
+
+    private fun onSearchIconClick() {
+        binding.imageSearch.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
     }
 
     private fun onPopularItemLongClick() {
-        popularItemsAdapter.onLongItemClick = {meal->
+        popularItemsAdapter.onLongItemClick = { meal ->
             val mealBottomSheetFragment = MealBottomSheetFragment.newInstance(meal.idMeal)
             mealBottomSheetFragment.show(childFragmentManager, "Meal Info")
         }

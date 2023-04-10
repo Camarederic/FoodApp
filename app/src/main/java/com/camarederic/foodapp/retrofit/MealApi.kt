@@ -17,11 +17,15 @@ interface MealApi {
     fun getMealDetails(@Query("i") id: String): Call<MealList>
 
     @GET("filter.php")
-    fun getPopularItems(@Query("c") categoryName:String):Call<MealsByCategoryList>
+    fun getPopularItems(@Query("c") categoryName: String): Call<MealsByCategoryList>
 
     @GET("categories.php")
-    fun getCategories():Call<CategoryList>
+    fun getCategories(): Call<CategoryList>
 
     @GET("filter.php")
-    fun getMealsByCategory(@Query("c") category: String) : Call<MealsByCategoryList>
+    fun getMealsByCategory(@Query("c") category: String): Call<MealsByCategoryList>
+
+    @GET("search.php")
+    fun searchMeals(@Query("s") searchQuery: String): Call<MealList>
+
 }

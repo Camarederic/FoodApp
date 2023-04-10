@@ -25,4 +25,6 @@
     <string name="read_more">Read More...</string>
     <string name="image_meal">Image meal</string>
     <string name="test">test</string>
+    <string name="search_meals">Search Meals...</string>
+    <string name="image_arrow">Arrow</string>
 </resources>
