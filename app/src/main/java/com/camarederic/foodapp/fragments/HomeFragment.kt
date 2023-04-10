@@ -16,6 +16,7 @@ import com.camarederic.foodapp.activities.MainActivity
 import com.camarederic.foodapp.activities.MealActivity
 import com.camarederic.foodapp.adapters.CategoriesAdapter
 import com.camarederic.foodapp.adapters.MostPopularAdapter
+import com.camarederic.foodapp.bottomsheet.MealBottomSheetFragment
 import com.camarederic.foodapp.databinding.FragmentHomeBinding
 import com.camarederic.foodapp.pojo.MealsByCategory
 import com.camarederic.foodapp.pojo.Meal
@@ -73,6 +74,15 @@ class HomeFragment : Fragment() {
         observeCategoriesLiveData()
         onCategoryClick()
 
+        onPopularItemLongClick()
+
+    }
+
+    private fun onPopularItemLongClick() {
+        popularItemsAdapter.onLongItemClick = {meal->
+            val mealBottomSheetFragment = MealBottomSheetFragment.newInstance(meal.idMeal)
+            mealBottomSheetFragment.show(childFragmentManager, "Meal Info")
+        }
     }
 
     private fun onCategoryClick() {

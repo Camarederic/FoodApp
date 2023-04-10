@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.camarederic.foodapp.R
 import com.camarederic.foodapp.activities.MainActivity
 import com.camarederic.foodapp.adapters.FavoritesMealsAdapter
 import com.camarederic.foodapp.databinding.FragmentFavoritesBinding

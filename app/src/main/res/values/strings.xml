@@ -18,4 +18,9 @@
     <string name="instructions">- Instructions :</string>
     <string name="category_name">Category name</string>
     <string name="image_youtube">Youtube</string>
+    <string name="image_bottom_sheet">Bottom Sheet</string>
+    <string name="text_view_area">Area</string>
+    <string name="beef">Beef</string>
+    <string name="meal_name">Meal Name</string>
+    <string name="read_more">Read More...</string>
 </resources>
