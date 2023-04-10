@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.camarederic.foodapp.database.MealDatabase
 import com.camarederic.foodapp.pojo.*
 import com.camarederic.foodapp.retrofit.RetrofitInstance
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -75,6 +77,18 @@ class HomeViewModel(private val mealDatabase: MealDatabase) : ViewModel() {
             })
     }
 
+    fun deleteMeal(meal: Meal) {
+        viewModelScope.launch {
+            mealDatabase.mealDao().delete(meal)
+        }
+    }
+
+    fun insertMeal(meal: Meal) {
+        viewModelScope.launch {
+            mealDatabase.mealDao().upsert(meal)
+        }
+    }
+
     fun observeRandomMealLiveData(): LiveData<Meal> {
         return randomMealLiveData
     }
@@ -83,11 +97,11 @@ class HomeViewModel(private val mealDatabase: MealDatabase) : ViewModel() {
         return popularItemsLiveData
     }
 
-    fun observeCategoriesLiveData():LiveData<List<Category>>{
+    fun observeCategoriesLiveData(): LiveData<List<Category>> {
         return categoriesLiveData
     }
 
-    fun observeFavoritesMealsLiveData():LiveData<List<Meal>>{
+    fun observeFavoritesMealsLiveData(): LiveData<List<Meal>> {
         return favoritesMealLiveData
     }
 }
