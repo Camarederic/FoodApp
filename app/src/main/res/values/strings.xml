@@ -23,4 +23,6 @@
     <string name="beef">Beef</string>
     <string name="meal_name">Meal Name</string>
     <string name="read_more">Read More...</string>
+    <string name="image_meal">Image meal</string>
+    <string name="test">test</string>
 </resources>

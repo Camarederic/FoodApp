@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_margin="8dp"
+            android:contentDescription="@string/image_meal"
             android:scaleType="centerCrop"
             android:src="@color/accent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,13 +29,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:fontFamily="@font/crimson_pro"
-            android:text="test"
-            android:textStyle="bold"
+            android:text="@string/test"
             android:textColor="@color/g_black"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/image_meal"
-            app:layout_constraintStart_toStartOf="@id/image_meal"
+            app:layout_constraintEnd_toEndOf="@+id/image_meal"
+            app:layout_constraintStart_toStartOf="@+id/image_meal"
             app:layout_constraintTop_toBottomOf="@id/image_meal" />
 
 
